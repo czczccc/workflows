@@ -29,6 +29,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create task prompt
+        shell: bash
         run: |
           cat > codex-task.txt <<EOF
           你正在处理一个开发任务。
