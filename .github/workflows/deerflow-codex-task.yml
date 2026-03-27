@@ -28,29 +28,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create task prompt
-        shell: bash
-        run: |
-          cat > codex-task.txt <<EOF
-          你正在处理一个开发任务。
-
-          任务ID: ${{ github.event.inputs.task_id }}
-          任务标题: ${{ github.event.inputs.task_title }}
-
-          验收标准：
-          ${{ github.event.inputs.acceptance }}
-
-          要求：
-          1. 只做当前任务
-          2. 尽量最小改动
-          3. 修改代码
-          4. 输出你做了什么
-          EOF
-
       - name: Run Codex
         uses: openai/codex-action@main
         with:
-          prompt-file: codex-task.txt
+          prompt: |
+            你是仓库修复代理，负责处理一次单任务修复。
+
+            当前任务:
+            - task_id: ${{ github.event.inputs.task_id }}
+            - task_title: ${{ github.event.inputs.task_title }}
+            - acceptance: ${{ github.event.inputs.acceptance }}
+
+            执行规则:
+            - 只做当前任务
+            - 不扩展需求
+            - 优先最小改动
+            - 优先直接修复仓库内现有代码、配置、路径或 workflow
+            - 如果问题与 GitHub Actions、Codex 参数、文件不存在、路径错误有关，优先修这些
+            - 不要只停留在分析，能改就直接改
+
+            输出要求:
+            1. 修改了哪些文件
+            2. 每个修改的目的
+            3. 当前任务是否已满足 acceptance
+            4. 如果还没完全满足，缺什么
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
