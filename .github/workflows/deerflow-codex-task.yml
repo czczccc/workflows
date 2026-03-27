@@ -49,7 +49,7 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
-          npm install -g @openai/codex
+          npm install -g @openai/codex@latest
           codex --version || true
 
       - name: Create prompt file
@@ -87,13 +87,24 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_DISABLE_WEBSOCKET: "1"
         run: |
           set -euxo pipefail
 
-          codex exec \
-            --full-auto \
-            --skip-git-repo-check \
-            "$(cat codex-task.txt)" | tee codex-output.log
+          for i in 1 2 3; do
+            if codex exec \
+              --full-auto \
+              --skip-git-repo-check \
+              "$(cat codex-task.txt)" | tee codex-output.log; then
+              exit 0
+            fi
+
+            echo "Codex failed, retry $i/3"
+            sleep 5
+          done
+
+          echo "Codex failed after 3 retries"
+          exit 1
 
       - name: Show git diff
         if: always()
