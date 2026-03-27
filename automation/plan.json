@@ -1,0 +1,16 @@
+{
+  "goal": "测试 DeerFlow2 -> GitHub Actions -> Codex 的最小闭环",
+  "tasks": [
+    {
+      "id": "task-001",
+      "title": "创建最小测试任务",
+      "status": "todo",
+      "acceptance": [
+        "工作流可以被手动触发",
+        "Codex 能收到任务说明",
+        "工作流能正常结束"
+      ],
+      "depends_on": []
+    }
+  ]
+}
