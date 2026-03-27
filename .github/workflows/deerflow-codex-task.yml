@@ -49,8 +49,9 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
-          npm install -g @openai/codex@latest
+          npm install -g @openai/codex@0.1.0
           codex --version || true
+          which codex || true
 
       - name: Create prompt file
         shell: bash
@@ -91,20 +92,24 @@ jobs:
         run: |
           set -euxo pipefail
 
-          for i in 1 2 3; do
-            if codex exec \
-              --full-auto \
-              --skip-git-repo-check \
-              "$(cat codex-task.txt)" | tee codex-output.log; then
-              exit 0
-            fi
+          echo "===== Try normal codex mode ====="
+          if codex "$(cat codex-task.txt)" | tee codex-output.log; then
+            exit 0
+          fi
 
-            echo "Codex failed, retry $i/3"
-            sleep 5
-          done
+          echo "===== Normal mode failed, retry after 5s ====="
+          sleep 5
 
-          echo "Codex failed after 3 retries"
-          exit 1
+          echo "===== Try exec mode fallback ====="
+          if codex exec "$(cat codex-task.txt)" | tee -a codex-output.log; then
+            exit 0
+          fi
+
+          echo "===== Exec mode failed, final retry after 5s ====="
+          sleep 5
+
+          echo "===== Final retry: normal codex mode ====="
+          codex "$(cat codex-task.txt)" | tee -a codex-output.log
 
       - name: Show git diff
         if: always()
@@ -115,6 +120,8 @@ jobs:
           git status --short
           echo "===== git diff --stat ====="
           git diff --stat
+          echo "===== git diff ====="
+          git diff || true
           echo "===== last commit ====="
           git log -1 --oneline || true
 
