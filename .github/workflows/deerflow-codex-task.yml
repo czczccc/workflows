@@ -47,7 +47,12 @@ jobs:
           ls -la /home/runner || true
           ls -la /home/runner/.codex || true
           find /home/runner/.codex -maxdepth 2 -type f | sort || true
-
+          
+      - name: Clean codex dir
+        run: |
+          rm -rf /home/runner/.codex
+          mkdir -p /home/runner/.codex
+           
       - name: Run Codex
         id: codex
         uses: openai/codex-action@main
