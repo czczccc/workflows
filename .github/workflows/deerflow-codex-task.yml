@@ -50,7 +50,7 @@ jobs:
       - name: Run Codex
         uses: openai/codex-action@main
         with:
-          prompt_file: codex-task.txt
+          prompt-file: codex-task.txt
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
