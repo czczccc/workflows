@@ -1,0 +1,55 @@
+name: DeerFlow Codex Task Runner
+
+on:
+  workflow_dispatch:
+    inputs:
+      task_id:
+        description: "Task ID"
+        required: true
+        type: string
+      task_title:
+        description: "Task title"
+        required: true
+        type: string
+      acceptance:
+        description: "Acceptance criteria"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  codex_task:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create task prompt
+        run: |
+          cat > codex-task.txt <<EOF
+          你正在处理一个开发任务。
+
+          任务ID: ${{ github.event.inputs.task_id }}
+          任务标题: ${{ github.event.inputs.task_title }}
+
+          验收标准：
+          ${{ github.event.inputs.acceptance }}
+
+          要求：
+          1. 只做当前任务
+          2. 尽量最小改动
+          3. 修改代码
+          4. 输出你做了什么
+          EOF
+
+      - name: Run Codex
+        uses: openai/codex-action@main
+        with:
+          prompt_file: codex-task.txt
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
