@@ -28,7 +28,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Bootstrap Codex State
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p /home/runner/.codex
+          echo "{\"run_id\":\"${{ github.run_id }}\",\"status\":\"init\"}" > /home/runner/.codex/${{ github.run_id }}.json
+          echo "Bootstrapped:"
+          cat /home/runner/.codex/${{ github.run_id }}.json
+
+      - name: Debug codex dir before run
+        shell: bash
+        run: |
+          set -euxo pipefail
+          echo "github.run_id=${{ github.run_id }}"
+          echo "HOME=$HOME"
+          pwd
+          ls -la /home/runner || true
+          ls -la /home/runner/.codex || true
+          find /home/runner/.codex -maxdepth 2 -type f | sort || true
+
       - name: Run Codex
+        id: codex
         uses: openai/codex-action@main
         with:
           prompt: |
@@ -55,3 +76,27 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Debug codex dir after run
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          echo "After Codex:"
+          echo "github.run_id=${{ github.run_id }}"
+          echo "HOME=$HOME"
+          ls -la /home/runner/.codex || true
+          find /home/runner/.codex -maxdepth 2 -type f | sort || true
+          for f in /home/runner/.codex/*.json; do
+            echo "---- $f ----"
+            cat "$f" || true
+          done
+
+      - name: Upload codex debug artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-debug-${{ github.run_id }}
+          path: |
+            /home/runner/.codex
+          if-no-files-found: warn

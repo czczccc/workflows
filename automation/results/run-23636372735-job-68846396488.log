@@ -1,0 +1,349 @@
+﻿ï»¿2026-03-27T07:44:28.0249526Z Current runner version: '2.333.0'
+2026-03-27T07:44:28.0272894Z ##[group]Runner Image Provisioner
+2026-03-27T07:44:28.0273811Z Hosted Compute Agent
+2026-03-27T07:44:28.0274360Z Version: 20260213.493
+2026-03-27T07:44:28.0274960Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-03-27T07:44:28.0275616Z Build Date: 2026-02-13T00:28:41Z
+2026-03-27T07:44:28.0276340Z Worker ID: {04812d50-e1c3-48e6-9121-cef95100c87e}
+2026-03-27T07:44:28.0277058Z Azure Region: westcentralus
+2026-03-27T07:44:28.0277575Z ##[endgroup]
+2026-03-27T07:44:28.0279061Z ##[group]Operating System
+2026-03-27T07:44:28.0279624Z Ubuntu
+2026-03-27T07:44:28.0280072Z 24.04.4
+2026-03-27T07:44:28.0280619Z LTS
+2026-03-27T07:44:28.0281076Z ##[endgroup]
+2026-03-27T07:44:28.0281557Z ##[group]Runner Image
+2026-03-27T07:44:28.0282400Z Image: ubuntu-24.04
+2026-03-27T07:44:28.0282995Z Version: 20260323.65.1
+2026-03-27T07:44:28.0284233Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260323.65/images/ubuntu/Ubuntu2404-Readme.md
+2026-03-27T07:44:28.0285817Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260323.65
+2026-03-27T07:44:28.0286745Z ##[endgroup]
+2026-03-27T07:44:28.0287838Z ##[group]GITHUB_TOKEN Permissions
+2026-03-27T07:44:28.0289596Z Contents: write
+2026-03-27T07:44:28.0290226Z Metadata: read
+2026-03-27T07:44:28.0290778Z PullRequests: write
+2026-03-27T07:44:28.0291261Z ##[endgroup]
+2026-03-27T07:44:28.0293713Z Secret source: Actions
+2026-03-27T07:44:28.0294475Z Prepare workflow directory
+2026-03-27T07:44:28.0634703Z Prepare all required actions
+2026-03-27T07:44:28.0675006Z Getting action download info
+2026-03-27T07:44:28.4564797Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-03-27T07:44:28.5576660Z Download action repository 'openai/codex-action@main' (SHA:c25d10f3f498316d4b2496cc4c6dd58057a7b031)
+2026-03-27T07:44:29.6218638Z Getting action download info
+2026-03-27T07:44:29.7733209Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-03-27T07:44:29.9267112Z Complete job name: codex_task
+2026-03-27T07:44:30.0005807Z ##[group]Run actions/checkout@v4
+2026-03-27T07:44:30.0007272Z with:
+2026-03-27T07:44:30.0008044Z   repository: czczccc/workflows
+2026-03-27T07:44:30.0009331Z   token: ***
+2026-03-27T07:44:30.0010197Z   ssh-strict: true
+2026-03-27T07:44:30.0010973Z   ssh-user: git
+2026-03-27T07:44:30.0011762Z   persist-credentials: true
+2026-03-27T07:44:30.0012932Z   clean: true
+2026-03-27T07:44:30.0013729Z   sparse-checkout-cone-mode: true
+2026-03-27T07:44:30.0014713Z   fetch-depth: 1
+2026-03-27T07:44:30.0015546Z   fetch-tags: false
+2026-03-27T07:44:30.0016406Z   show-progress: true
+2026-03-27T07:44:30.0017257Z   lfs: false
+2026-03-27T07:44:30.0018018Z   submodules: false
+2026-03-27T07:44:30.0018856Z   set-safe-directory: true
+2026-03-27T07:44:30.0020145Z ##[endgroup]
+2026-03-27T07:44:30.1133464Z Syncing repository: czczccc/workflows
+2026-03-27T07:44:30.1136208Z ##[group]Getting Git version info
+2026-03-27T07:44:30.1137602Z Working directory is '/home/runner/work/workflows/workflows'
+2026-03-27T07:44:30.1139851Z [command]/usr/bin/git version
+2026-03-27T07:44:30.1144118Z git version 2.53.0
+2026-03-27T07:44:30.1170580Z ##[endgroup]
+2026-03-27T07:44:30.1184997Z Temporarily overriding HOME='/home/runner/work/_temp/b348428f-b1bb-4ab5-934e-67a7224a7c54' before making global git config changes
+2026-03-27T07:44:30.1187879Z Adding repository directory to the temporary git global config as a safe directory
+2026-03-27T07:44:30.1199938Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/workflows/workflows
+2026-03-27T07:44:30.1233226Z Deleting the contents of '/home/runner/work/workflows/workflows'
+2026-03-27T07:44:30.1237140Z ##[group]Initializing the repository
+2026-03-27T07:44:30.1241638Z [command]/usr/bin/git init /home/runner/work/workflows/workflows
+2026-03-27T07:44:30.1326070Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-03-27T07:44:30.1329871Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-03-27T07:44:30.1331868Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-03-27T07:44:30.1333747Z hint: call:
+2026-03-27T07:44:30.1334447Z hint:
+2026-03-27T07:44:30.1335355Z hint: 	git config --global init.defaultBranch <name>
+2026-03-27T07:44:30.1336561Z hint:
+2026-03-27T07:44:30.1337686Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-03-27T07:44:30.1339633Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-03-27T07:44:30.1341152Z hint:
+2026-03-27T07:44:30.1341929Z hint: 	git branch -m <name>
+2026-03-27T07:44:30.1343206Z hint:
+2026-03-27T07:44:30.1344527Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-03-27T07:44:30.1346895Z Initialized empty Git repository in /home/runner/work/workflows/workflows/.git/
+2026-03-27T07:44:30.1350725Z [command]/usr/bin/git remote add origin https://github.com/czczccc/workflows
+2026-03-27T07:44:30.1371008Z ##[endgroup]
+2026-03-27T07:44:30.1372647Z ##[group]Disabling automatic garbage collection
+2026-03-27T07:44:30.1375657Z [command]/usr/bin/git config --local gc.auto 0
+2026-03-27T07:44:30.1406415Z ##[endgroup]
+2026-03-27T07:44:30.1408056Z ##[group]Setting up auth
+2026-03-27T07:44:30.1413560Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-03-27T07:44:30.1448552Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-03-27T07:44:30.1736259Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-03-27T07:44:30.1766629Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-03-27T07:44:30.1983468Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-03-27T07:44:30.2013570Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-03-27T07:44:30.2236251Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-03-27T07:44:30.2286250Z ##[endgroup]
+2026-03-27T07:44:30.2287059Z ##[group]Fetching the repository
+2026-03-27T07:44:30.2295126Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +66043954ed3ef67ad2ff787f28540f3acbd7523b:refs/remotes/origin/main
+2026-03-27T07:44:30.5595175Z From https://github.com/czczccc/workflows
+2026-03-27T07:44:30.5596139Z  * [new ref]         66043954ed3ef67ad2ff787f28540f3acbd7523b -> origin/main
+2026-03-27T07:44:30.5622857Z ##[endgroup]
+2026-03-27T07:44:30.5624166Z ##[group]Determining the checkout info
+2026-03-27T07:44:30.5625823Z ##[endgroup]
+2026-03-27T07:44:30.5630891Z [command]/usr/bin/git sparse-checkout disable
+2026-03-27T07:44:30.5666537Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-03-27T07:44:30.5691921Z ##[group]Checking out the ref
+2026-03-27T07:44:30.5696722Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-03-27T07:44:30.5734102Z Switched to a new branch 'main'
+2026-03-27T07:44:30.5737272Z branch 'main' set up to track 'origin/main'.
+2026-03-27T07:44:30.5743766Z ##[endgroup]
+2026-03-27T07:44:30.5775948Z [command]/usr/bin/git log -1 --format=%H
+2026-03-27T07:44:30.5797100Z 66043954ed3ef67ad2ff787f28540f3acbd7523b
+2026-03-27T07:44:30.6004077Z ##[group]Run cat > codex-task.txt <<EOF
+2026-03-27T07:44:30.6004803Z [36;1mcat > codex-task.txt <<EOF[0m
+2026-03-27T07:44:30.6005409Z [36;1mä½ æ­£å¨å¤çä¸ä¸ªå¼åä»»å¡ã[0m
+2026-03-27T07:44:30.6005862Z [36;1m[0m
+2026-03-27T07:44:30.6006282Z [36;1mä»»å¡ID: task-fix-20260327154423[0m
+2026-03-27T07:44:30.6007079Z [36;1mä»»å¡æ é¢: ??????????????(ENOENT)[0m
+2026-03-27T07:44:30.6007612Z [36;1m[0m
+2026-03-27T07:44:30.6007999Z [36;1méªæ¶æ åï¼[0m
+2026-03-27T07:44:30.6008420Z [36;1m???????????,?? workflow ????[0m
+2026-03-27T07:44:30.6008955Z [36;1m[0m
+2026-03-27T07:44:30.6009343Z [36;1mè¦æ±ï¼[0m
+2026-03-27T07:44:30.6009730Z [36;1m1. åªåå½åä»»å¡[0m
+2026-03-27T07:44:30.6010156Z [36;1m2. å°½éæå°æ¹å¨[0m
+2026-03-27T07:44:30.6010576Z [36;1m3. ä¿®æ¹ä»£ç [0m
+2026-03-27T07:44:30.6010982Z [36;1m4. è¾åºä½ åäºä»ä¹[0m
+2026-03-27T07:44:30.6011412Z [36;1mEOF[0m
+2026-03-27T07:44:30.6042002Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-03-27T07:44:30.6043143Z ##[endgroup]
+2026-03-27T07:44:30.6695278Z ##[group]Run openai/codex-action@main
+2026-03-27T07:44:30.6695903Z with:
+2026-03-27T07:44:30.6696324Z   prompt-file: codex-task.txt
+2026-03-27T07:44:30.6696851Z   sandbox: workspace-write
+2026-03-27T07:44:30.6697357Z   safety-strategy: drop-sudo
+2026-03-27T07:44:30.6697866Z   allow-bots: false
+2026-03-27T07:44:30.6698280Z env:
+2026-03-27T07:44:30.6700015Z   OPENAI_API_KEY: ***
+2026-03-27T07:44:30.6700650Z   GITHUB_TOKEN: ***
+2026-03-27T07:44:30.6701077Z ##[endgroup]
+2026-03-27T07:44:30.6873748Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-03-27T07:44:30.6874532Z with:
+2026-03-27T07:44:30.6874915Z   node-version: 20
+2026-03-27T07:44:30.6875340Z   always-auth: false
+2026-03-27T07:44:30.6875781Z   check-latest: false
+2026-03-27T07:44:30.6876402Z   token: ***
+2026-03-27T07:44:30.6876799Z env:
+2026-03-27T07:44:30.6878409Z   OPENAI_API_KEY: ***
+2026-03-27T07:44:30.6879008Z   GITHUB_TOKEN: ***
+2026-03-27T07:44:30.6879435Z ##[endgroup]
+2026-03-27T07:44:30.8615031Z Found in cache @ /opt/hostedtoolcache/node/20.20.1/x64
+2026-03-27T07:44:30.8621853Z ##[group]Environment details
+2026-03-27T07:44:31.1531279Z node: v20.20.1
+2026-03-27T07:44:31.1532951Z npm: 10.8.2
+2026-03-27T07:44:31.1534123Z yarn: 1.22.22
+2026-03-27T07:44:31.1535880Z ##[endgroup]
+2026-03-27T07:44:31.1658870Z ##[group]Run node "$ACTION_PATH/dist/main.js" check-write-access \
+2026-03-27T07:44:31.1660566Z [36;1mnode "$ACTION_PATH/dist/main.js" check-write-access \[0m
+2026-03-27T07:44:31.1661943Z [36;1m  --allow-bots "$ALLOW_BOTS" \[0m
+2026-03-27T07:44:31.1663442Z [36;1m  --allow-users "$ALLOW_USERS"[0m
+2026-03-27T07:44:31.1698838Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-03-27T07:44:31.1700119Z env:
+2026-03-27T07:44:31.1705065Z   OPENAI_API_KEY: ***
+2026-03-27T07:44:31.1706997Z   GITHUB_TOKEN: ***
+2026-03-27T07:44:31.1708320Z   ACTION_PATH: /home/runner/work/_actions/openai/codex-action/main
+2026-03-27T07:44:31.1709829Z   ALLOW_BOTS: false
+2026-03-27T07:44:31.1710611Z   ALLOW_USERS: 
+2026-03-27T07:44:31.1711324Z ##[endgroup]
+2026-03-27T07:44:31.2630072Z Checking write access for actor 'czczccc' on czczccc/workflows
+2026-03-27T07:44:31.5676015Z Actor 'czczccc' has permission level 'admin'.
+2026-03-27T07:44:31.5679585Z Actor 'czczccc' is permitted to continue.
+2026-03-27T07:44:31.6423535Z ##[group]Run npm install -g "@openai/codex@${CODEX_VERSION}"
+2026-03-27T07:44:31.6425198Z [36;1mnpm install -g "@openai/codex@${CODEX_VERSION}"[0m
+2026-03-27T07:44:31.6455936Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-03-27T07:44:31.6457269Z env:
+2026-03-27T07:44:31.6460859Z   OPENAI_API_KEY: ***
+2026-03-27T07:44:31.6462041Z   GITHUB_TOKEN: ***
+2026-03-27T07:44:31.6463183Z   CODEX_VERSION: 
+2026-03-27T07:44:31.6463967Z ##[endgroup]
+2026-03-27T07:44:34.5107626Z 
+2026-03-27T07:44:34.5108810Z added 2 packages in 3s
+2026-03-27T07:44:34.5265233Z ##[group]Run npm install -g "@openai/codex-responses-api-proxy@${CODEX_VERSION}"
+2026-03-27T07:44:34.5265819Z [36;1mnpm install -g "@openai/codex-responses-api-proxy@${CODEX_VERSION}"[0m
+2026-03-27T07:44:34.5292510Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-03-27T07:44:34.5292850Z env:
+2026-03-27T07:44:34.5293875Z   OPENAI_API_KEY: ***
+2026-03-27T07:44:34.5294227Z   GITHUB_TOKEN: ***
+2026-03-27T07:44:34.5294432Z   CODEX_VERSION: 
+2026-03-27T07:44:34.5294875Z ##[endgroup]
+2026-03-27T07:44:35.5617735Z 
+2026-03-27T07:44:35.5618630Z added 1 package in 969ms
+2026-03-27T07:44:35.5738406Z ##[group]Run node "$ACTION_PATH/dist/main.js" resolve-codex-home \
+2026-03-27T07:44:35.5738931Z [36;1mnode "$ACTION_PATH/dist/main.js" resolve-codex-home \[0m
+2026-03-27T07:44:35.5739335Z [36;1m  --codex-home-override "$CODEX_HOME_OVERRIDE" \[0m
+2026-03-27T07:44:35.5739702Z [36;1m  --safety-strategy "$SAFETY_STRATEGY" \[0m
+2026-03-27T07:44:35.5740001Z [36;1m  --codex-user "$CODEX_USER" \[0m
+2026-03-27T07:44:35.5740277Z [36;1m  --github-run-id "$CODEX_RUN_ID"[0m
+2026-03-27T07:44:35.5767278Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-03-27T07:44:35.5767631Z env:
+2026-03-27T07:44:35.5768548Z   OPENAI_API_KEY: ***
+2026-03-27T07:44:35.5768910Z   GITHUB_TOKEN: ***
+2026-03-27T07:44:35.5769195Z   ACTION_PATH: /home/runner/work/_actions/openai/codex-action/main
+2026-03-27T07:44:35.5769530Z   CODEX_HOME_OVERRIDE: 
+2026-03-27T07:44:35.5769738Z   SAFETY_STRATEGY: drop-sudo
+2026-03-27T07:44:35.5769971Z   CODEX_USER: 
+2026-03-27T07:44:35.5770156Z   CODEX_RUN_ID: 23636372735
+2026-03-27T07:44:35.5770359Z ##[endgroup]
+2026-03-27T07:44:35.6665680Z Resolved Codex home: /home/runner/.codex
+2026-03-27T07:44:35.6761620Z ##[group]Run server_info_file="$CODEX_HOME/$CODEX_RUN_ID.json"
+2026-03-27T07:44:35.6762071Z [36;1mserver_info_file="$CODEX_HOME/$CODEX_RUN_ID.json"[0m
+2026-03-27T07:44:35.6763037Z [36;1mecho "server_info_file=$server_info_file" >> "$GITHUB_OUTPUT"[0m
+2026-03-27T07:44:35.6789171Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-03-27T07:44:35.6789502Z env:
+2026-03-27T07:44:35.6790419Z   OPENAI_API_KEY: ***
+2026-03-27T07:44:35.6790772Z   GITHUB_TOKEN: ***
+2026-03-27T07:44:35.6790992Z   CODEX_HOME: /home/runner/.codex
+2026-03-27T07:44:35.6791231Z   CODEX_RUN_ID: 23636372735
+2026-03-27T07:44:35.6791449Z ##[endgroup]
+2026-03-27T07:44:35.6882516Z ##[group]Run node "$ACTION_PATH/dist/main.js" read-server-info "$SERVER_INFO_FILE"
+2026-03-27T07:44:35.6883082Z [36;1mnode "$ACTION_PATH/dist/main.js" read-server-info "$SERVER_INFO_FILE"[0m
+2026-03-27T07:44:35.6906573Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-03-27T07:44:35.6906897Z env:
+2026-03-27T07:44:35.6907736Z   OPENAI_API_KEY: ***
+2026-03-27T07:44:35.6908065Z   GITHUB_TOKEN: ***
+2026-03-27T07:44:35.6908359Z   ACTION_PATH: /home/runner/work/_actions/openai/codex-action/main
+2026-03-27T07:44:35.6908737Z   SERVER_INFO_FILE: /home/runner/.codex/23636372735.json
+2026-03-27T07:44:35.6909021Z ##[endgroup]
+2026-03-27T07:44:35.7770127Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:35.8786155Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:35.9792128Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.0798599Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.1803605Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.2810413Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.3816207Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.4822134Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.5827403Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.6835060Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.7842640Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.8848878Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:36.9855630Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.0860262Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.1867133Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.2875116Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.3881582Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.4887889Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.5895461Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.6901110Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.7906697Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.8912783Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:37.9916871Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.0921279Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.1927022Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.2930861Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.3935402Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.4939507Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.5942897Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.6947730Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.7951731Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.8956241Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:38.9960750Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.0967975Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.1971921Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.2976319Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.3982874Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.4986853Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.5990971Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.6997123Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.8001386Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:39.9005412Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.0011390Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.1017396Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.2022649Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.3027133Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.4031978Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.5036470Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.6040688Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.7044400Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.8049530Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:40.9053832Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.0058687Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.1061847Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.2065886Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.3070391Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.4074917Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.5078912Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.6083591Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.7087827Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.8092115Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:41.9096277Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.0100414Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.1103576Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.2109104Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.3113973Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.4117638Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.5123014Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.6127455Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.7131629Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.8136721Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:42.9140894Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.0145005Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.1149754Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.2156200Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.3161042Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.4165013Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.5169267Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.6172481Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.7176753Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.8181305Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:43.9186040Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.0190521Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.1196048Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.2200302Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.3205672Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.4210795Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.5210777Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.6215342Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.7220623Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.8226021Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:44.9231135Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.0235931Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.1240901Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.2245835Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.3249191Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.4255159Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.5259987Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.6265206Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.7269729Z Error reading server info: Error: ENOENT: no such file or directory, open '/home/runner/.codex/23636372735.json'
+2026-03-27T07:44:45.8343348Z /home/runner/work/_actions/openai/codex-action/main/dist/main.js:23394
+2026-03-27T07:44:45.8344983Z   throw Error(`Failed to read server info from ${serverInfoFile}`);
+2026-03-27T07:44:45.8346086Z         ^
+2026-03-27T07:44:45.8346304Z 
+2026-03-27T07:44:45.8347399Z Error: Failed to read server info from /home/runner/.codex/23636372735.json
+2026-03-27T07:44:45.8349228Z     at readServerInfo (/home/runner/work/_actions/openai/codex-action/main/dist/main.js:23394:9)
+2026-03-27T07:44:45.8351244Z     at async _Command.<anonymous> (/home/runner/work/_actions/openai/codex-action/main/dist/main.js:27631:5)
+2026-03-27T07:44:45.8352568Z 
+2026-03-27T07:44:45.8352721Z Node.js v20.20.1
+2026-03-27T07:44:45.8396766Z ##[error]Process completed with exit code 1.
+2026-03-27T07:44:45.8763358Z Post job cleanup.
+2026-03-27T07:44:45.8838826Z Post job cleanup.
+2026-03-27T07:44:45.9777606Z [command]/usr/bin/git version
+2026-03-27T07:44:45.9813166Z git version 2.53.0
+2026-03-27T07:44:45.9857496Z Temporarily overriding HOME='/home/runner/work/_temp/1bda193d-b811-4229-8953-780b153cb932' before making global git config changes
+2026-03-27T07:44:45.9859040Z Adding repository directory to the temporary git global config as a safe directory
+2026-03-27T07:44:45.9864298Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/workflows/workflows
+2026-03-27T07:44:45.9899527Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-03-27T07:44:45.9931813Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-03-27T07:44:46.0148400Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-03-27T07:44:46.0168162Z http.https://github.com/.extraheader
+2026-03-27T07:44:46.0180307Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-03-27T07:44:46.0210768Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-03-27T07:44:46.0424037Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-03-27T07:44:46.0453688Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-03-27T07:44:46.0775086Z Cleaning up orphan processes
+2026-03-27T07:44:46.1037535Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
